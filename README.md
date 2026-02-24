@@ -1,151 +1,77 @@
 # 📉 Customer Churn Prediction System
 
-An end-to-end Machine Learning project that predicts customer churn using behavioral and subscription data. The system includes data analysis, model training, and a production-ready Streamlit web application.
+An end-to-end **production-grade machine learning system** that predicts telecom customer churn using Logistic Regression, FastAPI, Streamlit, and Explainable AI (SHAP).
+
+This project demonstrates the complete ML lifecycle — from data preprocessing and model optimization to cloud deployment and model interpretability.
+
+---
+---
+
+## 📌 Project Overview
+
+Customer churn is one of the most critical challenges in the telecom industry. Acquiring new customers is significantly more expensive than retaining existing ones. This project builds a production-ready machine learning system to proactively identify customers who are likely to discontinue the service.
+
+The solution combines **predictive modeling, real-time inference, and explainable AI** to help businesses take timely retention actions and reduce revenue loss.
 
 ---
 
-## 🚀 Project Overview
+## 🎯 Project Objective
 
-Customer churn is a critical problem in the telecom industry. Retaining existing customers is significantly cheaper than acquiring new ones. This project builds a predictive system to identify customers at high risk of churn so that proactive retention strategies can be applied.
+The primary objectives of this project are:
 
----
-
-## 🎯 Objectives
-
-* Perform exploratory data analysis on telecom customer data
-* Build and compare multiple ML models
-* Identify key drivers of churn
-* Deploy an interactive Streamlit web application
-* Provide business recommendations for customer retention
+* Predict the probability of customer churn using historical behavioral data
+* Improve churn detection through class imbalance handling
+* Optimize decision threshold for business-aligned recall
+* Provide real-time predictions via FastAPI and Streamlit
+* Enhance model transparency using SHAP explainability
+* Deliver an end-to-end deployable ML system suitable for production environments
 
 ---
 
-## 🗂️ Project Structure
+## 🌍 Real-World Applications
 
-Customer-Churn-Prediction/
-├── app/  (Streamlit application)
-├── models/  (Saved model artifacts)
-├── notebooks/  (Jupyter analysis)
-├── reports/  (Screenshots and outputs)
-├── requirements.txt
-└── README.md
+This system can be directly applied in:
 
----
+* 📡 Telecom customer retention programs
+* 💳 Subscription-based businesses (OTT, SaaS, fintech)
+* 🏦 Banking and insurance customer attrition analysis
+* 🛒 E-commerce customer loyalty monitoring
+* 🎯 Targeted marketing and retention campaigns
 
-## 📊 Dataset
-
-* Telecom Customer Churn Dataset
-* ~7,000 customers
-* Binary classification problem
-
-**Target Variable:** `Churn`
+Organizations can integrate this pipeline to **identify high-risk customers early and trigger personalized retention strategies**.
 
 ---
 
-## 🔧 Tech Stack
+## 💼 Business Insights & Impact
 
-**Languages & Libraries**
+From a business perspective, the model is optimized to prioritize **high churn recall**, ensuring that most at-risk customers are identified.
 
-* Python
-* Pandas, NumPy
-* Scikit-learn
-* XGBoost
-* Matplotlib
+**Key business considerations:**
 
-**Deployment**
+* ✅ Threshold tuned from 0.50 → **0.45** to improve churn capture
+* ✅ Class imbalance handled to avoid majority-class bias
+* ✅ Model achieves ~0.83 ROC-AUC indicating strong separation
+* ✅ SHAP explanations provide actionable feature-level insights
+* ✅ System enables proactive retention instead of reactive loss handling
 
-* Streamlit
-* Joblib
+**Business value:**
 
----
-
-## 🧠 Machine Learning Approach
-
-### Models Trained
-
-* Logistic Regression (Baseline)
-* Random Forest
-* XGBoost
-
-### ✅ Best Model
-
-**Logistic Regression** achieved the best performance on this dataset, indicating strong linear separability in customer churn behavior.
+* Reduce customer acquisition costs
+* Improve customer lifetime value (CLV)
+* Enable data-driven retention campaigns
+* Increase revenue protection
+* Build trust through explainable predictions
 
 ---
 
-## 📈 Model Performance
-
-| Model               | Accuracy |
-| ------------------- | -------- |
-| Logistic Regression | ~0.80    |
-| Random Forest       | ~0.78    |
-| XGBoost             | ~0.77    |
-
-*(Your exact values may vary slightly)*
-
----
-
-## 🔍 Key Business Insights
-
-* Month-to-month customers show higher churn risk
-* Customers with shorter tenure are more likely to leave
-* Higher monthly charges correlate with increased churn
-* Electronic check payment users exhibit higher churn
-
----
-
-## 💡 Business Recommendations
-
-* Target early-tenure customers with onboarding offers
-* Provide loyalty discounts for month-to-month users
-* Monitor high monthly charge customers closely
-* Encourage automatic payment methods
-
----
-
-## 🖥️ Streamlit Web App
-
-The project includes a production-style interactive dashboard where users can:
-
-* Input customer details
-* View churn probability
-* See risk level classification
-* Get real-time predictions
-
----
-
-## 📸 Application Screenshots
-
-screenshots are in reports 
----
-
-## ⚙️ How to Run Locally
-
-### 1️⃣ Clone the repository
-
-git clone <your-repo-link>
-cd Customer-Churn-Prediction
-
-### 2️⃣ Install dependencies
-
-pip install -r requirements.txt
-
-### 3️⃣ Run the Streamlit app
-
-streamlit run app/app.py
-
-
----
-
-## 🚀 Customer Churn Prediction System
-
-An end-to-end machine learning system that predicts customer churn using a production-ready FastAPI backend and cloud deployment. The project demonstrates full ML lifecycle capabilities including preprocessing, model serving, and real-time inference.
-
----
 
 ## 🌐 Live Demo
 
-### 🔗 FastAPI Swagger Documentation
+### 🔗 Streamlit Dashboard
+
+👉 https://customer-churn-prediction-n6fkpnzogb7ahp9waffxvk.streamlit.app/
+
+### 🔗 FastAPI Swagger
 
 👉 https://churn-fastapi-0h53.onrender.com/docs
 
@@ -155,22 +81,50 @@ An end-to-end machine learning system that predicts customer churn using a produ
 
 ---
 
-## 🎯 Project Highlights
+## 🎯 Key Highlights
 
 * 📊 End-to-end churn prediction pipeline
-* ⚡ Real-time inference using FastAPI
-* ☁️ Cloud deployment on Render
-* 🔄 Automated preprocessing and feature alignment
-* 📈 Production-ready ML architecture
-* 🧩 Modular and scalable design
+* ⚖️ Class imbalance handling using `class_weight='balanced'`
+* 🎯 Decision threshold optimization (0.45) for business alignment
+* 🔍 SHAP-based Explainable AI integration
+* ⚡ Real-time inference via FastAPI
+* 🎨 Interactive Streamlit dashboard
+* ☁️ Cloud deployment on Render & Streamlit Cloud
+* 🧩 Modular and production-ready architecture
 
 ---
 
 ## 🏗️ System Architecture
 
+```id="arch1"
+User Input → Streamlit UI → FastAPI → Preprocessing → Scaler → ML Model → Prediction + SHAP Explanation
 ```
-User Input → FastAPI → Preprocessing → Scaler → ML Model → Prediction Response
-```
+
+---
+
+## 📊 Model Performance
+
+**Model:** Logistic Regression
+**ROC-AUC:** ~0.83
+
+### 🎯 Business-Focused Optimization
+
+* Improved churn recall through class balancing
+* Tuned probability threshold from **0.50 → 0.45**
+* Better alignment with customer retention strategy
+
+---
+
+## 🔍 Explainable AI
+
+Integrated **SHAP (SHapley Additive exPlanations)** to improve model transparency.
+
+**Capabilities:**
+
+* Local prediction explanations
+* Feature contribution visualization
+* Business interpretability support
+* Trustworthy AI predictions
 
 ---
 
@@ -178,15 +132,13 @@ User Input → FastAPI → Preprocessing → Scaler → ML Model → Prediction 
 
 ### Endpoint
 
-```
+```id="arch2"
 POST /predict
 ```
 
----
-
 ### 🧾 Sample Request
 
-```json
+```json id="arch3"
 {
   "SeniorCitizen": 0,
   "tenure": 12,
@@ -202,11 +154,9 @@ POST /predict
 }
 ```
 
----
-
 ### ✅ Sample Response
 
-```json
+```json id="arch4"
 {
   "churn_probability": 0.81,
   "risk_level": "High",
@@ -218,19 +168,29 @@ POST /predict
 
 ## 🧠 Tech Stack
 
-* **Python**
-* **Scikit-learn**
-* **Pandas & NumPy**
-* **FastAPI**
-* **Uvicorn**
-* **Render (Cloud Hosting)**
-* **Streamlit (UI - local/demo)**
+**Core ML**
+
+* Python
+* Scikit-learn
+* Pandas & NumPy
+
+**Deployment & Apps**
+
+* FastAPI
+* Uvicorn
+* Streamlit
+* Render (Cloud Hosting)
+* Streamlit Community Cloud
+
+**Explainability**
+
+* SHAP
 
 ---
 
 ## 📂 Project Structure
 
-```
+```id="arch5"
 customer-churn-project/
 │
 ├── app/                 # Streamlit application
@@ -247,29 +207,40 @@ customer-churn-project/
 
 ## 🚀 How to Run Locally
 
-```bash
-# install dependencies
-pip install -r requirements.txt
+### 1️⃣ Install dependencies
 
-# run FastAPI
-uvicorn fastapi_app.main:app --reload
+```bash id="arch6"
+pip install -r requirements.txt
+```
+
+### 2️⃣ Run FastAPI
+
+```bash id="arch7"
+python -m uvicorn fastapi_app.main:app --reload
 ```
 
 Open:
 
-```
+```id="arch8"
 http://127.0.0.1:8000/docs
+```
+
+### 3️⃣ Run Streamlit
+
+```bash id="arch9"
+streamlit run app/app.py
 ```
 
 ---
 
 ## 🔮 Future Improvements
 
-* SHAP explainability integration
-* AutoML comparison
+* AutoML model comparison
+* Advanced hyperparameter tuning
 * Docker containerization
-* AWS production deployment
-* Model monitoring & logging
+* Full AWS production deployment
+* Model monitoring & drift detection
+* Batch prediction pipeline
 
 ---
 
@@ -278,3 +249,6 @@ http://127.0.0.1:8000/docs
 **Nachiketh S Shetty**
 Aspiring Data Scientist | ML Engineer | AI Systems Builder
 
+---
+
+⭐ *If you found this project useful, consider starring the repository!*
