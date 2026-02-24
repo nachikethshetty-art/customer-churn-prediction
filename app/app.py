@@ -104,9 +104,9 @@ with col1:
         else:
             input_df = create_input_dataframe()
             input_scaled = scaler.transform(input_df)
-
-            prediction = model.predict(input_scaled)[0]
             probability = model.predict_proba(input_scaled)[0][1]
+            THRESHOLD = 0.45
+            prediction = int(probability >= THRESHOLD)
 
             # Risk level
             if probability < 0.3:

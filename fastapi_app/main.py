@@ -116,7 +116,8 @@ def predict(data: CustomerData):
 
     # Predict
     probability = model.predict_proba(scaled_data)[0][1]
-    prediction = int(model.predict(scaled_data)[0])
+    THRESHOLD = 0.45
+    prediction = int(probability >= THRESHOLD)
 
     return {
         "churn_probability": round(float(probability), 4),
