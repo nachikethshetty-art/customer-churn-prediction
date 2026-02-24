@@ -134,25 +134,147 @@ pip install -r requirements.txt
 
 streamlit run app/app.py
 
+
+---
+
+## 🚀 Customer Churn Prediction System
+
+An end-to-end machine learning system that predicts customer churn using a production-ready FastAPI backend and cloud deployment. The project demonstrates full ML lifecycle capabilities including preprocessing, model serving, and real-time inference.
+
+---
+
+## 🌐 Live Demo
+
+### 🔗 FastAPI Swagger Documentation
+
+👉 https://churn-fastapi-0h53.onrender.com/docs
+
+### 🧠 Health Check
+
+👉 https://churn-fastapi-0h53.onrender.com/
+
+---
+
+## 🎯 Project Highlights
+
+* 📊 End-to-end churn prediction pipeline
+* ⚡ Real-time inference using FastAPI
+* ☁️ Cloud deployment on Render
+* 🔄 Automated preprocessing and feature alignment
+* 📈 Production-ready ML architecture
+* 🧩 Modular and scalable design
+
+---
+
+## 🏗️ System Architecture
+
+```
+User Input → FastAPI → Preprocessing → Scaler → ML Model → Prediction Response
+```
+
+---
+
+## 📡 API Usage
+
+### Endpoint
+
+```
+POST /predict
+```
+
+---
+
+### 🧾 Sample Request
+
+```json
+{
+  "SeniorCitizen": 0,
+  "tenure": 12,
+  "MonthlyCharges": 70,
+  "TotalCharges": 1500,
+  "gender": "Male",
+  "Partner": "Yes",
+  "Dependents": "No",
+  "PhoneService": "Yes",
+  "MultipleLines": "No",
+  "InternetService": "Fiber optic",
+  "OnlineSecurity": "Yes"
+}
+```
+
+---
+
+### ✅ Sample Response
+
+```json
+{
+  "churn_probability": 0.81,
+  "risk_level": "High",
+  "prediction": 1
+}
+```
+
+---
+
+## 🧠 Tech Stack
+
+* **Python**
+* **Scikit-learn**
+* **Pandas & NumPy**
+* **FastAPI**
+* **Uvicorn**
+* **Render (Cloud Hosting)**
+* **Streamlit (UI - local/demo)**
+
+---
+
+## 📂 Project Structure
+
+```
+customer-churn-project/
+│
+├── app/                 # Streamlit application
+├── fastapi_app/         # FastAPI service
+├── models/              # Saved model artifacts
+├── data/                # Dataset
+├── notebooks/           # EDA & training
+├── reports/             # Screenshots & outputs
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🚀 How to Run Locally
+
+```bash
+# install dependencies
+pip install -r requirements.txt
+
+# run FastAPI
+uvicorn fastapi_app.main:app --reload
+```
+
+Open:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## 🔮 Future Improvements
+
+* SHAP explainability integration
+* AutoML comparison
+* Docker containerization
+* AWS production deployment
+* Model monitoring & logging
+
 ---
 
 ## 👨‍💻 Author
 
 **Nachiketh S Shetty**
+Aspiring Data Scientist | ML Engineer | AI Systems Builder
 
-* MSc Physics
-* MBA in Data Science & Analytics
-* Aspiring Data Scientist
-
----
-
-## ⭐ Future Improvements
-
-* Hyperparameter tuning
-* AWS deployment
-* FastAPI inference endpoint
-* Advanced class imbalance handling
-
----
-
-⭐ If you found this project useful, consider giving it a star!
