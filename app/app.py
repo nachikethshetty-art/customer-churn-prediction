@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 import os
+import shap
+import matplotlib.pyplot as plt
 
 # ----------------------
 # Page Config
@@ -28,7 +30,22 @@ def load_artifacts():
     return model, scaler, feature_columns
 
 model, scaler, FEATURE_COLUMNS = load_artifacts()
+# ----------------------
+# SHAP Explainer
+# ----------------------
+@st.cache_resource
+def load_explainer(_model, _background):
+    return shap.KernelExplainer(_model.predict_proba, _background)
 
+# Create small background sample (important)
+background_data = pd.DataFrame(
+    [ [0]*len(FEATURE_COLUMNS) ],
+    columns=FEATURE_COLUMNS
+)
+
+background_scaled = scaler.transform(background_data)
+
+explainer = load_explainer(model, background_scaled)
 # ----------------------
 # Header
 # ----------------------
@@ -107,6 +124,30 @@ with col1:
             probability = model.predict_proba(input_scaled)[0][1]
             THRESHOLD = 0.45
             prediction = int(probability >= THRESHOLD)
+
+            # ----------------------
+            # SHAP Explanation
+            # ----------------------
+            st.subheader("🔍 Model Explanation (Why this prediction?)")
+
+            try:
+                shap_values = explainer.shap_values(input_scaled)[0]
+
+                fig, ax = plt.subplots()
+                shap.plots.waterfall(
+                    shap.Explanation(
+                        values=shap_values[0],
+                        base_values=explainer.expected_value[1],
+                        data=input_df.iloc[0],
+                        feature_names=input_df.columns.tolist(),
+                    ),
+                    show=False
+                )
+                st.pyplot(fig)
+                plt.close(fig)
+
+            except Exception as e:
+                st.warning(f"SHAP explanation unavailable: {e}")
 
             # Risk level
             if probability < 0.3:
